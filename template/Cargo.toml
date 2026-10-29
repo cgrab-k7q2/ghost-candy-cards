@@ -1,0 +1,38 @@
+[package]
+name = "ghost_candy_cards"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "Ghost Candy Cards: unlinkable trick-or-treat bearer cards. Redeem a paper card for stealth CANDY with a Schnorr proof bound to your outputs."
+
+[package.metadata.tari-template]
+tags = ["privacy", "stealth", "halloween", "gift-cards", "schnorr"]
+category = "privacy"
+documentation = "https://github.com/cgrab-k7q2/ghost-candy-cards"
+homepage = "https://github.com/cgrab-k7q2/ghost-candy-cards"
+
+[dependencies]
+tari_template_lib = "0.36.0"
+sha2 = { version = "0.10", default-features = false }
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = "debuginfo"
+
+[build-dependencies]
+tari_ootle_template_build = "0.17"
+
+[dev-dependencies]
+sha2 = "0.10"
+tari_template_test_tooling = "0.48.0"
+tari_ootle_transaction = "0.48.0"
+tari_ootle_common_types = "0.48.0"
+tari_template_lib = "0.36.0"
+curve25519-dalek = { version = "4", features = ["rand_core"] }
+rand = "0.8"
