@@ -1,0 +1,12 @@
+[package]
+name = "candy-cli"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Card printer and Schnorr prover for Ghost Candy Cards"
+
+[dependencies]
+curve25519-dalek = { version = "4", features = ["rand_core"] }
+sha2 = "0.10"
+rand = "0.8"
+hex = "0.4"
